@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Emerald Dealer Dashboard</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="assets/css/app.min.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <link rel="stylesheet" href="assets/bundles/datatables/datatables.min.css">
+  <link rel="stylesheet" href="assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+  <style>
+    td.details-control {
+      background: url('https://datatables.net/examples/resources/details_open.png') no-repeat center center;
+      cursor: pointer;
+    }
+
+    tr.shown td.details-control {
+      background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar sticky">
+        <div class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+            <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                <i data-feather="maximize"></i>
+              </a></li>
+
+          </ul>
+        </div>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+              class="nav-link nav-link-lg message-toggle"><i data-feather="message-square"></i>
+              <span class="badge headerBadge1 bg-danger">
+                1 </span> </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+              <div class="dropdown-header">
+                Messages
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-message">
+                <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" src="assets/img/users/user-1.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                      Deo</span>
+                    <span class="time messege-text">Please check your mail !!</span>
+                    <span class="time">2 Min Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Request for leave
+                      application</span>
+                    <span class="time">5 Min Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-5.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                      Ryan</span> <span class="time messege-text">Your payment invoice is
+                      generated.</span> <span class="time">12 Min Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-4.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                      Smith</span> <span class="time messege-text">hii John, I have upload
+                      doc
+                      related to task.</span> <span class="time">30
+                      Min Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-3.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                      Joshi</span> <span class="time messege-text">Please do as specify.
+                      Let me
+                      know if you have any query.</span> <span class="time">1
+                      Days Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="assets/img/users/user-2.png" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Client Requirements</span>
+                    <span class="time">2 Days Ago</span>
+                  </span>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+              class="nav-link nav-link-lg message-toggle"><i data-feather="bell" class="bell"></i>
+              <span class="badge headerBadge1 bg-danger">
+                2 </span>
+            </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+              <div class="dropdown-header">
+                Notifications
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread"> <span
+                    class="dropdown-item-icon bg-primary text-white"> <i class="fas
+												fa-code"></i>
+                  </span> <span class="dropdown-item-desc"> Template update is
+                    available now! <span class="time">2 Min
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="far
+												fa-user"></i>
+                  </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                      Sugiharto</b> are now friends <span class="time">10 Hours
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-success text-white"> <i
+                      class="fas
+												fa-check"></i>
+                  </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                    moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                      Hours
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-danger text-white"> <i
+                      class="fas fa-exclamation-triangle"></i>
+                  </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                    clean it! <span class="time">17 Hours Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="fas
+												fa-bell"></i>
+                  </span> <span class="dropdown-item-desc"> Welcome to Otika
+                    template! <span class="time">Yesterday</span>
+                  </span>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-user">
+
+
+              <div class="d-flex align-items-center">
+                <div class="mr-3 header-user-profile-logo_wrapper"><img class="header-user-profile-logo" alt="image"
+                    src="assets/img/user-profile.png" class="img-fluid"></div>
+
+                <div>
+                  <div class="user-profile_name">Vishnu prasath</div>
+                  <div class="user-profile_caption">Admin</div>
+                </div>
+              </div>
+            </a>
+
+
+            <div class="dropdown-menu dropdown-menu-right pullDown">
+              <div class="dropdown-title">Hello Vishnu prasath</div>
+              <a href="profile.html" class="dropdown-item has-icon"> <i class="far
+										fa-user"></i> Profile
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" />
+            </a>
+          </div>
+          <ul class="sidebar-menu">
+
+            <li class="dropdown active">
+              <a href="index.html" class="nav-link"><i data-feather="grid"></i><span>Dashboard</span></a>
+            </li>
+
+
+
+            <li class="dropdown">
+              <a href="order-details.html" class="nav-link"><i data-feather="file-text"></i><span>Orders</span></a>
+            </li>
+
+
+
+
+            <li class="dropdown">
+              <a href="shipment.html" class="nav-link"><i data-feather="truck"></i><span>Shipment</span></a>
+            </li>
+
+
+            <li class="dropdown">
+              <a href="ready-stock.html" class="nav-link"><i data-feather="archive"></i><span>Ready Stock</span></a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="menu-header">Help & Support</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link"><i data-feather="help-circle"></i><span>Help & Center</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link"><i data-feather="settings"></i><span>Settings</span></a>
+            </li>
+
+            <li class="dropdown mt-5">
+              <a href="login.html" class="nav-link"><i data-feather="log-out"></i><span>Logout</span></a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+
+
+            <div class="row">
+              <div class="col-12 mb-4">
+                <div class="h2 page-main-heading">Dealers Dashboard</div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-12 mb-4 d-flex justify-content-between align-items-center">
+
+                <div class="text-gray h6">
+                  Overview
+                </div>
+                <div>
+                  <div class="input-group custom-input-group">
+                    <div class="m-auto">
+                      <span>
+                        <svg width="20" height="20" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10.7826 0.972126H9.09423V0.447598C9.09423 0.200414 8.89382 0 8.64663 0C8.39945 0 8.19903 0.200414 8.19903 0.447598V0.972126H4.80096V0.447598C4.80096 0.200414 4.60055 0 4.35337 0C4.10618 0 3.90577 0.200414 3.90577 0.447598V0.972126H2.21744C0.994637 0.972126 0 1.96687 0 3.18968V9.45812C0 10.6648 0.981524 11.6463 2.18794 11.6463H10.8121C12.0185 11.6463 13 10.6648 13 9.45812V3.18968C13 1.96687 12.0054 0.972126 10.7826 0.972126ZM2.21744 1.86732H3.90577V2.12707C3.90577 2.37426 4.10618 2.57467 4.35337 2.57467C4.60055 2.57467 4.80096 2.37426 4.80096 2.12707V1.86732H8.19903V2.12707C8.19903 2.37426 8.39945 2.57467 8.64663 2.57467C8.89382 2.57467 9.09423 2.37426 9.09423 2.12707V1.86732H10.7826C11.5117 1.86732 12.1048 2.46048 12.1048 3.18968V3.61422H0.895195V3.18968C0.895195 2.46048 1.48835 1.86732 2.21744 1.86732ZM10.8121 10.7511H2.18794C1.47502 10.7511 0.895195 10.171 0.895195 9.45812V4.50942H12.1048V9.45812C12.1048 10.171 11.525 10.7511 10.8121 10.7511Z" fill="#F96421"/>
+                          <path d="M3.51084 5.83398H2.84207C2.59488 5.83398 2.39447 6.0344 2.39447 6.28158C2.39447 6.52877 2.59488 6.72918 2.84207 6.72918H3.51084C3.75803 6.72918 3.95844 6.52877 3.95844 6.28158C3.95844 6.0344 3.75803 5.83398 3.51084 5.83398Z" fill="#F96421"/>
+                          <path d="M6.83437 5.83398H6.1656C5.91842 5.83398 5.718 6.0344 5.718 6.28158C5.718 6.52877 5.91842 6.72918 6.1656 6.72918H6.83437C7.08156 6.72918 7.28197 6.52877 7.28197 6.28158C7.28197 6.0344 7.08156 5.83398 6.83437 5.83398Z" fill="#F96421"/>
+                          <path d="M10.1579 5.83398H9.48916C9.24198 5.83398 9.04156 6.0344 9.04156 6.28158C9.04156 6.52877 9.24198 6.72918 9.48916 6.72918H10.1579C10.4051 6.72918 10.6055 6.52877 10.6055 6.28158C10.6055 6.0344 10.4051 5.83398 10.1579 5.83398Z" fill="#F96421"/>
+                          <path d="M3.51084 8.12891H2.84207C2.59488 8.12891 2.39447 8.32932 2.39447 8.5765C2.39447 8.82369 2.59488 9.0241 2.84207 9.0241H3.51084C3.75803 9.0241 3.95844 8.82369 3.95844 8.5765C3.95844 8.32932 3.75803 8.12891 3.51084 8.12891Z" fill="#F96421"/>
+                          <path d="M6.83437 8.12891H6.1656C5.91842 8.12891 5.718 8.32932 5.718 8.5765C5.718 8.82369 5.91842 9.0241 6.1656 9.0241H6.83437C7.08156 9.0241 7.28197 8.82369 7.28197 8.5765C7.28197 8.32932 7.08156 8.12891 6.83437 8.12891Z" fill="#F96421"/>
+                          <path d="M10.1579 8.12891H9.48916C9.24198 8.12891 9.04156 8.32932 9.04156 8.5765C9.04156 8.82369 9.24198 9.0241 9.48916 9.0241H10.1579C10.4051 9.0241 10.6055 8.82369 10.6055 8.5765C10.6055 8.32932 10.4051 8.12891 10.1579 8.12891Z" fill="#F96421"/>
+                          </svg>
+                          
+                      </span>
+                    </div>
+
+                    <input class="form-control" type="text" placeholder="Date Range" name="datefilter" value="">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+
+
+              <div class="col-12 col-md-6 col-xl dashboard-card_item">
+                <div class="card dashboard-card dashboard-card_1">
+
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <h5>120</h5>
+                      <div class="text-success ">+5.9%</div>
+                    </div>
+
+
+                    <div class=" text-gray mt-3">Total Orders</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-12 col-md-6 col-xl dashboard-card_item">
+                <div class="card dashboard-card dashboard-card_2">
+
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <h5>688,000</h5>
+                      <div class="text-success ">+5.9%</div>
+                    </div>
+
+
+                    <div class=" text-gray mt-3">Total Order Volume</div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-12 col-md-6 col-xl dashboard-card_item">
+                <div class="card dashboard-card dashboard-card_3">
+
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <h5>400,000</h5>
+                      <div class="text-success ">+5.9%</div>
+                    </div>
+
+
+                    <div class=" text-gray mt-3">Available Balance</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-12 col-md-6 col-xl dashboard-card_item">
+                <div class="card dashboard-card dashboard-card_4">
+
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <h5>288,000</h5>
+                      <div class="text-success ">+5.9%</div>
+                    </div>
+
+
+                    <div class=" text-gray mt-3">Pending Advance</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-12 col-md-6 col-xl dashboard-card_item">
+                <div class="card dashboard-card dashboard-card_5">
+
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <h5>2</h5>
+                      <div class="text-success ">+5.9%</div>
+                    </div>
+
+
+                    <div class=" text-gray mt-3">WIP Orders</div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+
+
+
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card h-100">
+                  <div class="card-header pt-3">
+                    <div class="d-flex justify-content-between w-100">
+                      <div>
+                        <h5>Recent Orders</h5>
+                      </div>
+
+                      <div class="d-flex align-items-center">
+
+                        <div>
+                          <select class="custom-btn-border recent-orders-select-box" name="" id="">
+                            <option value="0-30">Last Month</option>
+                            <option value="0-15">Last 15 Days</option>
+                            <option selected value="0-7">Last week</option>
+
+                          </select>
+                        </div>
+
+                        <div class="dropdown d-inline ml-2">
+                          <button class="zone-btn dropdown-toggle" type="button" id="zone-dropdownMenuButton2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span><svg width="15" height="10" viewBox="0 0 15 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M10.4167 5.83333C9.4088 5.83333 8.56808 6.54903 8.37502 7.49992L0.416667 7.5C0.186548 7.5 0 7.68655 0 7.91667C0 8.14678 0.186548 8.33333 0.416667 8.33333L8.37511 8.33383C8.56833 9.28452 9.40894 10 10.4167 10C11.4244 10 12.265 9.28452 12.4582 8.33383L14.5833 8.33333C14.8135 8.33333 15 8.14678 15 7.91667C15 7.68655 14.8135 7.5 14.5833 7.5L12.4583 7.49992C12.2653 6.54903 11.4245 5.83333 10.4167 5.83333ZM10.4167 6.66667C11.107 6.66667 11.6667 7.22631 11.6667 7.91667C11.6667 8.60702 11.107 9.16667 10.4167 9.16667C9.72631 9.16667 9.16667 8.60702 9.16667 7.91667C9.16667 7.22631 9.72631 6.66667 10.4167 6.66667ZM4.58333 0C3.57546 0 2.73475 0.715696 2.54169 1.66659L0.416667 1.66667C0.186548 1.66667 0 1.85321 0 2.08333C0 2.31345 0.186548 2.5 0.416667 2.5L2.54178 2.5005C2.735 3.45118 3.57561 4.16667 4.58333 4.16667C5.59106 4.16667 6.43167 3.45118 6.62489 2.5005L14.5833 2.5C14.8135 2.5 15 2.31345 15 2.08333C15 1.85321 14.8135 1.66667 14.5833 1.66667L6.62498 1.66659C6.43192 0.715696 5.5912 0 4.58333 0ZM4.58333 0.833333C5.27369 0.833333 5.83333 1.39298 5.83333 2.08333C5.83333 2.77369 5.27369 3.33333 4.58333 3.33333C3.89298 3.33333 3.33333 2.77369 3.33333 2.08333C3.33333 1.39298 3.89298 0.833333 4.58333 0.833333Z"
+                                  fill="#F96421" />
+                              </svg>
+                            </span> Zone
+                          </button>
+                          <div class="dropdown-menu" x-placement="bottom-start"
+                            style="position: absolute; transform: translate3d(0px, 27px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a class="dropdown-item" href="#">North Zone</a>
+                            <a class="dropdown-item" href="#">South Zone</a>
+                            <a class="dropdown-item" href="#">West Zone</a>
+                            <a class="dropdown-item" href="#">East Zone</a>
+                            <a class="dropdown-item" href="#">Corporate</a>
+
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="table-1">
+                        <thead>
+                          <tr>
+                            <th class="text-center pt-3">
+                              <div class="custom-checkbox custom-checkbox-table custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
+                                  class="custom-control-input" id="checkbox-all">
+                                <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                              </div>
+                            </th>
+                            <th>Order ID</th>
+                            <th>Dealer Name</th>
+                            <th>Project</th>
+                            <th>Weight in Grams</th>
+                            <th>Order date</th>
+
+                            <th>Order Started date</th>
+                            <th>Status</th>
+                            <th>Info <i class="fas fa-info-circle"></i></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+
+
+
+                          <tr>
+                            <td class="text-center pt-2">
+                              <div class="custom-checkbox custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
+                                  id="checkbox-1">
+                                <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                              </div>
+                            </td>
+                            <td>999-5878</td>
+
+                            <td>
+                              <div class="text-dark ">Jai Durga Jewellers</div>
+                              <div>9th,Teachers Colony,..</div>
+                            </td>
+
+                            <td>Silver Chain (+3)</td>
+
+                            <td>448.81</td>
+
+                            <td>Mar 13, 2023</td>
+
+                            <td>Mar 13, 2023
+                            </td>
+                            <td>
+                              <div class="badge wip">Completed <i class="ml-2 fas fa-chevron-down"></i></div>
+                            </td>
+                            <td>
+                              <div class="dropdown custom-dropdown border-0 text-center">
+                                <div class="btn btn-sm sharp tp-btn" data-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                      <rect x="0" y="0" width="24" height="24"></rect>
+                                      <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end"
+                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-115px, 28px, 0px);">
+                                  <a class="dropdown-item" href="#">Option 1</a>
+                                  <a class="dropdown-item" href="#">Option 2</a>
+                                  <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                      
+
+                          <tr>
+                            <td class="text-center pt-2">
+                              <div class="custom-checkbox custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
+                                  id="checkbox-2">
+                                <label for="checkbox-2" class="custom-control-label">&nbsp;</label>
+                              </div>
+                            </td>
+                            <td>999-5878</td>
+
+                            <td>
+                              <div class="text-dark ">Chandi Bazar</div>
+                              <div>9th,Teachers Colony,..</div>
+                            </td>
+
+                            <td>Silver Chain (+3)</td>
+
+                            <td>448.81</td>
+
+                            <td>Mar 13, 2023</td>
+
+                            <td>Mar 13, 2023
+                            </td>
+                            <td>
+                              <div class="badge overdue">Overdue <i class="ml-2 fas fa-chevron-down"></i></div>
+                            </td>
+                            <td>
+                              <div class="dropdown custom-dropdown border-0 text-center">
+                                <div class="btn btn-sm sharp tp-btn" data-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                      <rect x="0" y="0" width="24" height="24"></rect>
+                                      <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end"
+                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-115px, 28px, 0px);">
+                                  <a class="dropdown-item" href="#">Option 1</a>
+                                  <a class="dropdown-item" href="#">Option 2</a>
+                                  <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+
+                          <tr>
+                            <td class="text-center pt-2">
+                              <div class="custom-checkbox custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
+                                  id="checkbox-3">
+                                <label for="checkbox-3" class="custom-control-label">&nbsp;</label>
+                              </div>
+                            </td>
+                            <td>999-5878</td>
+
+                            <td>
+                              <div class="text-dark ">Arvind Jewellers</div>
+                              <div>9th,Teachers Colony,..</div>
+                            </td>
+
+                            <td>Silver Chain (+3)</td>
+
+                            <td>448.81</td>
+
+                            <td>Mar 13, 2023</td>
+
+                            <td>Mar 13, 2023
+                            </td>
+                            <td>
+                              <div class="badge pending">Pending <i class="ml-2 fas fa-chevron-down"></i></div>
+                            </td>
+                            <td>
+                              <div class="dropdown custom-dropdown border-0 text-center">
+                                <div class="btn btn-sm sharp tp-btn" data-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                      <rect x="0" y="0" width="24" height="24"></rect>
+                                      <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end"
+                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-115px, 28px, 0px);">
+                                  <a class="dropdown-item" href="#">Option 1</a>
+                                  <a class="dropdown-item" href="#">Option 2</a>
+                                  <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                         
+
+                          <tr>
+                            <td class="text-center pt-2">
+                              <div class="custom-checkbox custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
+                                  id="checkbox-1">
+                                <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                              </div>
+                            </td>
+                            <td>999-5878</td>
+
+                            <td>
+                              <div class="text-dark ">Jai Durga Jewellers</div>
+                              <div>9th,Teachers Colony,..</div>
+                            </td>
+
+                            <td>Silver Chain (+3)</td>
+
+                            <td>448.81</td>
+
+                            <td>Mar 13, 2023</td>
+
+                            <td>Mar 13, 2023
+                            </td>
+                            <td>
+                              <div class="badge starting">Starting <i class="ml-2 fas fa-chevron-down"></i></div>
+                            </td>
+                            <td>
+                              <div class="dropdown custom-dropdown border-0 text-center">
+                                <div class="btn btn-sm sharp tp-btn" data-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                      <rect x="0" y="0" width="24" height="24"></rect>
+                                      <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                      <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end"
+                                  style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-115px, 28px, 0px);">
+                                  <a class="dropdown-item" href="#">Option 1</a>
+                                  <a class="dropdown-item" href="#">Option 2</a>
+                                  <a class="dropdown-item" href="#">Option 3</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+
+
+
+                          
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </section>
+
+      </div>
+      <footer class="main-footer">
+        <div class="col-12 text-center ">
+          <div>DMS Dashboard © 2023 All Rights Reserved. Developed by BBIT</div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/bundles/datatables/datatables.min.js"></script>
+  <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/datatables.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/index.js"></script>
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+  <script type="text/javascript">
+    $(function () {
+
+      $('input[name="datefilter"]').daterangepicker({
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        "locale": {
+          "format": "MM/DD/YYYY",
+          "separator": " - ",
+          "applyLabel": "Apply",
+          "cancelLabel": "Cancel",
+          "fromLabel": "From",
+          "toLabel": "To",
+          "customRangeLabel": "Custom",
+          "weekLabel": "W",
+          "daysOfWeek": [
+            "Su",
+            "Mo",
+            "Tu",
+            "We",
+            "Th",
+            "Fr",
+            "Sa"
+          ],
+          "monthNames": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ],
+          "firstDay": 1
+        }
+      }, function (start, end, label) {
+        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+      });
+
+    });
+  </script>
+</body>
+
+
+
+</html>

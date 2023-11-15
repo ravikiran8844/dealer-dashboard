@@ -1161,3 +1161,46 @@ padding: 0 10px;
     background-color: #08c;
     color: #fff !important;
 }
+
+
+
+
+
+
+.icon-btn{
+    background: none;
+    border: none;
+    outline: none;
+
+}
+
+.icon-btn:focus{
+    
+    outline: none;
+}
+    /* Content that is initially hidden */
+    .hidden-content {
+        display: none;
+        border-radius: 6px;
+        background: #2D2D2D;
+        color: #fff;
+        box-shadow: 1.28431px 8.9902px 16.69608px 0px rgba(186, 186, 186, 0.41);
+        width: max-content;
+        padding: 5px;
+      }
+  
+      /* Show the hidden content on button click */
+      .clicked .hidden-content {
+        display: block;
+      }
+      .hidden-content .table {
+        color: #FFF !important;
+        border-color: #fff;
+
+      }
+      .hidden-content table:not(.table-sm) thead th {
+        background: #414141 !important;
+        color: #FFF !important;
+        border: none;
+    }
+      

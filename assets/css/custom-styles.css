@@ -202,6 +202,13 @@ background: #FFF;
 
 }
 
+.dropdown.active{
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.10);
+    border-left: 4px solid #F78D1E;;
+}
+
+
 .dropdown-border{
     border-radius: 0.34463rem;
     border: 0.919px solid #E3E3E3;
@@ -1203,4 +1210,93 @@ padding: 0 10px;
         color: #FFF !important;
         border: none;
     }
-      
+    .ready-stock_card-title{
+        color: #929292;
+        font-family: Inter;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 18.392px; /* 141.479% */
+    }     
+    .ready-stock_card-view-more_link{
+        color: #F78D1E !important;
+        font-family: Inter;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+    }
+
+
+    .ready-stock_card-items{
+        border-radius: 8px;
+        width: fit-content;
+        background: #F5F6F6;
+        padding: 10px 15px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    @media (min-width:565px) {
+        .ready-stock_card-items{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            gap: 30px;
+        }
+     
+    }
+    .ready-stock_card-item{
+        margin: auto;
+    }
+
+.ready-stock_card-item_title{
+    color: #262626;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18.392px; /* 131.373% */
+}
+.ready-stock_card-item_text{
+    color: #565656;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18.392px; /* 131.373% */
+}
+
+
+
+
+.quantity-input-group{
+    width: max-content;
+    border-radius: 17.641px;
+    border: 0.961px solid #C5C5C5;
+    background: #F8F8F8;
+  }
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    background: #F8F8F8 !important;
+    border: none;
+    outline: none;
+    font-size: 14px;
+
+}
+
+input.qtyplus { width:25px; height:25px;
+background-color: transparent;
+border: none !important;
+}
+input.qtyminus { width:25px; height:25px;
+background-color: transparent;
+border: none !important;
+
+}
+.qty input{
+    border: none !important;
+}

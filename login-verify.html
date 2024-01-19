@@ -149,7 +149,10 @@
     
         continueButton.addEventListener('click', function () {
             if (validateOTP()) {
-                alert("OTP is valid. Continue with the next steps."); // Replace this with your desired action
+                document.getElementById("error-message").classList.add("d-none");
+                // alert("OTP is valid. Continue with the next steps."); // Replace this with your desired action
+                window.location.href = 'https://oms-new.vercel.app';
+
             }
         });
     
